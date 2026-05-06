@@ -15,10 +15,21 @@ jobs:
 
     # Setting up variables for BaaMbazangu pricing
     env:
-      PRICE_GRILLED_MEAT: 60.00  # Replace with actual price
-      PRICE_SIGNATURE_COCKTAIL: 35.00 # Replace with actual price
-      PRICE_LOCAL_DISH: 60.00 # Replace with actual price
-      VAT_RATE: 0.14 # Botswana VAT is 14%
+          # --- START OF DEPLOYMENT STEPS ---
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload the entire repository (or specify a subfolder like './public')
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      # --- END OF DEPLOYMENT STEPS ---
+
 
     steps:
       - name: Checkout Repository
@@ -33,7 +44,9 @@ jobs:
           echo "Current Meat Price: ${{ env.PRICE_GRILLED_MEAT }}"
           echo "Current Cocktail Price: ${{ env.PRICE_SIGNATURE_COCKTAIL }}"
           
-          # Add your payment processing script here:
+          # Add your payment processing script here:      - name: Run Payment Processing
+        run: python scripts/process_payment.py
+
           # node scripts/process-baambazangu-billing.js
       - name: Run Billing Script
         run: python scripts/process-baambazangu-billing.py
