@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaaMbazangu | Authentic Tswana Flavors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BaaMbazangu</div>
+        <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#contact" class="btn-small">Find Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Taste the Heart of <span class="highlight">Botswana</span></h1>
+            <p>Authentic grilled flavors and traditional Tswana cuisine in the heart of Kasane.</p>
+            <a href="#menu" class="btn">View Daily Specials</a>
+        </div>
+    </header>
+
+    <section id="menu" class="specials">
+        <h2>Today's Specials</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="price">P85</div>
+                <img src="https://via.placeholder.com/400x300" alt="Seswaa">
+                <h3>Signature Seswaa</h3>
+                <p>Traditional pounded beef served with fluffy pap and morogo.</p>
+            </div>
+            <div class="card">
+                <div class="price">P110</div>
+                <img src="https://via.placeholder.com/400x300" alt="Grilled Platter">
+                <h3>Chobe Platter</h3>
+                <p>Flame-grilled boerewors, chicken wings, and brisket with chakalaka.</p>
+            </div>
+            <div class="card">
+                <div class="price">P45</div>
+                <img src="https://via.placeholder.com/400x300" alt="Local Brew">
+                <h3>Ginger Beer (Gemere)</h3>
+                <p>Our famous homemade traditional ginger beer, chilled to perfection.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="ingredients">
+        <div class="text-block">
+            <h2>Locally Sourced</h2>
+            <p>We believe in the power of local. Every ingredient, from our Tswana beef to our seasonal greens, is sourced directly from Botswana farmers to ensure the freshest plate for you.</p>
+        </div>
+    </header>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.156172600293!2d25.1500!3d-17.8167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDQ5JzAwLjAiUyAyNcKwMDknMDAuMCJF!5e0!3m2!1sen!2sbw!4v1683400000000!5m2!1sen!2sbw" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="info">
+                <h3>Find Us</h3>
+                <p>Kasane, Chobe District</p>
+                <p>Open: 10:00 AM - 10:00 PM</p>
+                <a href="tel:+2671234567" class="btn-outline">Call to Order</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+:root {
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+    --sunset-orange: #FF4500;
+    --earth-red: #8B0000;
+    --text-light: #F5E8D8;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Lexend', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: var(--sunset-orange);
+}
+
+ul { display: flex; list-style: none; gap: 20px; }
+a { color: white; text-decoration: none; font-weight: bold; }
+
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.highlight { color: var(--sunset-orange); }
+
+.btn {
+    background: var(--earth-red);
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover { background: var(--sunset-orange); transform: scale(1.05); }
+
+.specials { padding: 50px 5%; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img { width: 100%; border-radius: 10px; }
+.price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--sunset-orange);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px 5%;
+    background: #000;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}
