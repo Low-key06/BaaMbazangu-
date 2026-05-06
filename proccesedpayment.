@@ -1,0 +1,30 @@
+import stripe
+
+# Replace with your actual secret key from the Stripe Dashboard
+stripe.api_key = "sk_test_your_key_here"
+
+def create_checkout_session():
+    try:
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'bwp',
+                    'product_data': {
+                        'name': 'Service Payment',
+                    },
+                    'unit_amount': 2000, # Amount in cents ($20.00)
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url='https://yourwebsite.com/success.html',
+            cancel_url='https://yourwebsite.com/cancel.html',
+        )
+        return session.url
+    except Exception as e:
+        return str(e)
+
+# Example run
+if __name__ == "__main__":
+    print("Checkout URL:", create_checkout_session())
